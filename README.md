@@ -50,3 +50,22 @@ colnames(mtcars
 mtcars.index # attribute, not method, returns an "Index" object
 mtcars.columns
 ```
+
+## Data wrangling
+
+Arrange rows based on values of a specific variable (column):
+
+```
+# R
+mtcars[order(mtcars$mpg), ] # base R
+mtcars[order(mtcars$mpg, decreasing = TRUE), ]
+arrange(mtcars, mpg) # dplyr (tidyverse) way
+arrange(mtcars, desc(mpg))
+arrange(mtcars, desc(cyl), mpg) # multiple variables
+
+# Python
+mtcars.sort_values("mpg", ascending = True)
+mtcars.sort_values("mpg", ascending = False)
+mtcars.sort_values(["cyl", "mpg"], ascending = [False, True])
+```
+
