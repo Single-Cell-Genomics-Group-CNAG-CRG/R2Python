@@ -44,7 +44,7 @@ Set/Get row and column names from a dataframe:
 ```
 # R
 rownames(mtcars)
-colnames(mtcars
+colnames(mtcars)
 
 # Python
 mtcars.index # attribute, not method, returns an "Index" object
