@@ -94,5 +94,31 @@ sns.countplot(data = mtcars, x = "cyl")
 plt.show()
 ```
 
+Scatterplot:
+
+```
+# R
+mtcars %>%
+  ggplot(aes(drat, wt)) +
+    geom_point()
+
+# Python
+sns.scatterplot(data = mtcars, x = "drat", y = "wt")
+```
+
+Scatterplot with a categorical variable mapped to color:
+
+```
+# R
+mtcars %>%
+  ggplot(aes(drat, wt, color = as.character(cyl))) +
+  geom_point() +
+  scale_color_manual(values = c("red", "yellow", "blue"))
+
+# Python
+hue_colors = {4:"red", 6:"yellow", 8: "blue"}
+sns.scatterplot(data = mtcars, x = "drat", y = "wt", hue = "cyl", hue_order = [4, 6, 8], palette = hue_colors)
+```
+
 
 
