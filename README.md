@@ -69,3 +69,30 @@ mtcars.sort_values("mpg", ascending = False)
 mtcars.sort_values(["cyl", "mpg"], ascending = [False, True])
 ```
 
+## Plotting with seaborn
+
+Importing seaborn and matplotlib conventions:
+
+```
+# Python
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+Plot a barplot of counts for a categorical variable:
+
+```
+# R
+mtcars %>%
+  group_by(cyl) %>%
+  summarize(n = n()) %>%
+  ggplot(aes(x = cyl, y = n)) +
+    geom_col()
+
+# Python
+sns.countplot(data = mtcars, x = "cyl")
+plt.show()
+```
+
+
+
