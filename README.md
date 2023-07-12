@@ -133,4 +133,24 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
 sns.relplot(data = "iris", x = "Sepal.Length", y = "Sepal.Width", kind = "scatter", col = "Species", col_order = ["virginica", "versicolor", "setosa])
 ```
 
-We can also map variables to "size", "hue", or "style" in sns.relplot. We can set the alpha to make it more transparent
+We can also map variables to "size", "hue", or "style" in sns.relplot. We can set the alpha to make it more transparent.
+
+Plotting a scatterplot with seaborn is not the best option when using a continuous color scale because it discretizes the values. Thus, we need to resort to matplotlibs flexibility. Let's say that we have an AnnData object with precomputed QC metrics, and we want to plot number of detected genes VS library size colored by % of mitochondrial exprssion. With matplotlib:
+
+```
+# Python
+scatterplot = plt.scatter(
+    adata.obs["total_counts"],
+    adata.obs["n_genes_by_counts"],
+    c=adata.obs["pct_counts_mt"],
+    s = 0.75,
+    alpha = 0.85,
+    cmap='inferno'
+)
+colorbar = plt.colorbar(scatterplot)
+colorbar.set_label("Percentage of mitochondrial expression (%)")
+plt.xlabel("Library size (total UMI)")
+plt.ylabel("Number of detected genes")
+plt.show()
+```
+
