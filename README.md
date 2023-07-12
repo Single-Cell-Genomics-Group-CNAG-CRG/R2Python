@@ -133,5 +133,4 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
 sns.relplot(data = "iris", x = "Sepal.Length", y = "Sepal.Width", kind = "scatter", col = "Species", col_order = ["virginica", "versicolor", "setosa])
 ```
 
-
-
+We can also map variables to "size", "hue", or "style" in sns.relplot. We can set the alpha to make it more transparent
