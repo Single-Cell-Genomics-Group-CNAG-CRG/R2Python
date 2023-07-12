@@ -130,7 +130,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
 
 
 # Python
-sns.relplot(data = "iris", x = "Sepal.Length", y = "Sepal.Width", kind = "scatter", col = "Species")
+sns.relplot(data = "iris", x = "Sepal.Length", y = "Sepal.Width", kind = "scatter", col = "Species", col_order = ["virginica", "versicolor", "setosa])
 ```
 
 
