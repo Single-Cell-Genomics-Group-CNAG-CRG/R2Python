@@ -120,5 +120,18 @@ hue_colors = {4:"red", 6:"yellow", 8: "blue"}
 sns.scatterplot(data = mtcars, x = "drat", y = "wt", hue = "cyl", hue_order = [4, 6, 8], palette = hue_colors)
 ```
 
+Scatterplot split into subplots by levels of a categorical variable:
+
+```
+# R
+ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point() +
+  facet_wrap(~Species)
+
+
+# Python
+sns.relplot(data = "iris", x = "Sepal.Length", y = "Sepal.Width", kind = "scatter", col = "Species")
+```
+
 
 
